@@ -5,7 +5,7 @@ import AlertContext from "../../../context/alert/AlertContext";
 const UserSearch = () => {
 	const [text, setText] = useState("");
 
-	const { users, fetchUsers, clearSearch } = useContext(GithubContext);
+	const { users, getUsers, clearSearch } = useContext(GithubContext);
 	const { setAlert } = useContext(AlertContext);
 
 	const handleChange = e => setText(e.target.value);
@@ -16,7 +16,7 @@ const UserSearch = () => {
 		if (text === "") {
 			setAlert("Please enter something", "error");
 		} else {
-			fetchUsers(text);
+			getUsers(text);
 			setText("");
 		}
 	};
