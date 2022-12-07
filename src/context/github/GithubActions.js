@@ -15,14 +15,6 @@ export const getUsers = async (text) => {
 
   const response = await github.get(`/search/users?${params}`);
   return response.data.items;
-  // const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
-  //   headers: {
-  //     Authorization: `token ${GITHUB_TOKEN}`,
-  //   },
-  // });
-
-  // const { items } = await response.json();
-  // return items;
 };
 
 //Get user and repos
@@ -32,7 +24,5 @@ export const getUserAndRepos = async (login) => {
     github.get(`/users/${login}/repos`),
   ]);
 
-  // return ({ user, repos } = await response.json());
-  // return ({ user, repos } = data.json());
   return { user: user.data, repos: repos.data };
 };
